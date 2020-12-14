@@ -1,0 +1,21 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sakila
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: true  #must
+    show-sql: true
+  data:
+    rest:
+      base-path: /
+      default-page-size: 10
+      max-page-size: 100
+      detection-strategy: annotated
+#      default-media-type: application/json   # no use for response body
+#      default-media-type: application/vnd.hal+json
+
