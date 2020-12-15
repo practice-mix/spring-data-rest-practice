@@ -20,7 +20,25 @@ class MyAirportControllerTest {
     @Autowired
     MockMvc mockMvc;
 
+    @Test
+    void takeByNameRest() throws Exception {
+        String result = mockMvc.perform(get("/myAirports/search/takeByNameRest?name=name2")).andReturn().getResponse().getContentAsString();
+        System.out.println(result);
+    }
 
+
+
+    @Test
+    void takeById() throws Exception {
+        String result = mockMvc.perform(get("/myAirports/search/takeById?id=1")).andReturn().getResponse().getContentAsString();
+        System.out.println(result);
+    }
+
+    @Test
+    void obtainByName() throws Exception {
+        String result = mockMvc.perform(get("/myAirports/search/obtainByName?name=name2")).andReturn().getResponse().getContentAsString();
+        System.out.println(result);
+    }
 
 
 }

@@ -4,10 +4,8 @@ import com.example.springdatarest.model.MyAirport;
 import com.example.springdatarest.repository.MyAirportRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.rest.webmvc.RepositoryRestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,18 +14,30 @@ import java.util.List;
  * @since 12/14/2020
  */
 @RestController
-@RequestMapping("myAirports")
+@RequestMapping("/myAirports")
 @RequiredArgsConstructor
 public class MyAirportController {
 
     private final MyAirportRepository airportRepository;
 
 
-    @GetMapping("/search/takeByName")
-    public List<MyAirport> takeByName(@RequestParam("name") String name) {
-        MyAirport airport=new MyAirport();
+    @GetMapping("/search/takeByNameRest")
+    public List<MyAirport> takeByName(@RequestParam("name") String name) {//@RestController will load airport cascade as flight
+        MyAirport airport = new MyAirport();
         airport.setName(name);
-       return airportRepository.findAll(Example.of(airport));
+        return airportRepository.findAll(Example.of(airport));
     }
+
+    @GetMapping("/search/takeById")
+    public MyAirport takeById(@RequestParam("id") String id) {
+        return airportRepository.findById(id).get(); //N+1
+    }
+
+    @GetMapping("/search/obtainByName")
+    @ResponseBody
+    public List<MyAirport> obtainByName(@RequestParam("name") String name) {
+        return airportRepository.findByName(name); //N+1
+    }
+
 
 }

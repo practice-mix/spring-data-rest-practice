@@ -25,5 +25,11 @@ class ActorControllerTest {
         System.out.println(result);
     }
 
+    @Test
+    void takeByLastName() throws Exception {
+        String result = mockMvc.perform(get("/actors/search/takeByLastName?lastName=GUINESS")).andReturn().getResponse().getContentAsString();
+        System.out.println(result);
+    }
+
 
 }

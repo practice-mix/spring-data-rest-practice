@@ -27,5 +27,10 @@ class MyAirportRepositoryTest {
         System.out.println(result);
     }
 
+    @Test
+    void findById() throws Exception {
+        String result = mockMvc.perform(get("/myAirports/1")).andReturn().getResponse().getContentAsString();
+        System.out.println(result);
+    }
 
 }

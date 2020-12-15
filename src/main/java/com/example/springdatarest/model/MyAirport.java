@@ -32,22 +32,13 @@ public class MyAirport {
     }
 
 
-//    @OneToMany(mappedBy = "depaAirport")
+//    @OneToMany(mappedBy = "depaAirport",fetch = FetchType.LAZY)
 //    @JsonManagedReference
 //    private List<MyFlight> depaFlights;
 //
-//    @OneToMany(mappedBy = "arriAirport")
+//    @OneToMany(mappedBy = "arriAirport",fetch = FetchType.LAZY)
 //    @JsonManagedReference
 //    private List<MyFlight> arriFlights;
 
 
-//    @JsonIgnore
-//    public List<MyFlight> getDepaFlights() {
-//        return depaFlights;
-//    }
-//
-//    @JsonIgnore
-//    public List<MyFlight> getArriFlights() {
-//        return arriFlights;
-//    }
 }

@@ -16,4 +16,6 @@ import java.util.Optional;
 public interface MyAirportRepository extends JpaRepository<MyAirport, String> {
 
     List<MyAirport> findBySizeGreaterThanEqual(@Param("size") Integer size);
+
+    List<MyAirport> findByName(@Param("name") String name);
 }

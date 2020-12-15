@@ -27,16 +27,10 @@ class ActorRepositoryTest {
     }
 
     @Test
-    void findByFirstName() throws Exception {//hide actor DELETE endpoint
+    void findByFirstName() throws Exception {
         var result = mockMvc.perform(get("/actors/search/findByFirstName?firstName=PENELOPE")).andReturn().getResponse().getContentAsString();
         System.out.print(result);
 
-    }
-
-    @Test
-    void getOne() throws Exception {
-        String result = mockMvc.perform(get("/actors/search/getOne")).andReturn().getResponse().getContentAsString();
-        System.out.println(result);
     }
 
 
