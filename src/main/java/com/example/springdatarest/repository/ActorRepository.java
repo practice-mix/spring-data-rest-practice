@@ -20,7 +20,7 @@ public interface ActorRepository extends JpaRepository<Actor, Integer> {
     @Override
     void deleteById(Integer integer);
 
-    List<Actor> findByFirstName(@Param("firstName") String firstName);//eliminated N+1; default to http://localhost:8080/actors/search/findByFirstName
+    List<Actor> findByFirstName(@Param("firstName") String firstName);//SDR eliminated N+1 here; default to http://localhost:8080/actors/search/findByFirstName
 
 
     List<Actor> findByLastName(@Param("lastName") String lastName);
