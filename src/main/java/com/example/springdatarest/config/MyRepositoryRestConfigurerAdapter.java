@@ -27,6 +27,8 @@ public class MyRepositoryRestConfigurerAdapter implements RepositoryRestConfigur
      */
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration repositoryRestConfiguration, CorsRegistry cors) {
+
+
         repositoryRestConfiguration.exposeIdsFor(entityManager.getMetamodel().getEntities().stream().map(e -> e.getJavaType()).collect(Collectors.toList()).toArray(new Class[0]));
 //or individual:  config.exposeIdsFor(User.class);
 
@@ -37,9 +39,11 @@ public class MyRepositoryRestConfigurerAdapter implements RepositoryRestConfigur
 
         ExposureConfiguration exposureConfiguration = repositoryRestConfiguration.getExposureConfiguration();
 
-        exposureConfiguration.forDomainType(Actor.class).disablePutForCreation();
-        exposureConfiguration.withItemExposure((metadata, httpMethods) -> httpMethods.disable(HttpMethod.PATCH));
+//       //useful
+//        exposureConfiguration.forDomainType(Actor.class).disablePutForCreation();
+//        exposureConfiguration.withItemExposure((metadata, httpMethods) -> httpMethods.disable(HttpMethod.PATCH));
 
+//        //useless
 //        repositoryRestConfiguration.setDefaultMediaType(MediaType.APPLICATION_JSON);//useless
 //        repositoryRestConfiguration.useHalAsDefaultJsonMediaType(false);//useless
 
