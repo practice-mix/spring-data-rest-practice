@@ -10,9 +10,9 @@ spring:
       ddl-auto: none
     open-in-view: true  #must
     show-sql: true
-    properties:
-      hibernate:
-        generate_statistics: true
+#    properties:
+#      hibernate:
+#        generate_statistics: true
   data:
     rest:
       base-path: /

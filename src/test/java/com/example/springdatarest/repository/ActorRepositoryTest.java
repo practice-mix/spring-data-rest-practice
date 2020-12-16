@@ -34,5 +34,12 @@ class ActorRepositoryTest {
     }
 
 
+//    @Test
+//    void findAllByExample() throws Exception {
+//        var result = mockMvc.perform(get("/actors/findAll?firstName=PENELOPE")).andReturn().getResponse().getContentAsString();
+//        System.out.print(result);
+//    }
+
+
 
 }

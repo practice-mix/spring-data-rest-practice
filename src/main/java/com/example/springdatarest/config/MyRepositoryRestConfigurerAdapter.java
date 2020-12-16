@@ -41,7 +41,7 @@ public class MyRepositoryRestConfigurerAdapter implements RepositoryRestConfigur
         exposureConfiguration.withItemExposure((metadata, httpMethods) -> httpMethods.disable(HttpMethod.PATCH));
 
 //        repositoryRestConfiguration.setDefaultMediaType(MediaType.APPLICATION_JSON);//useless
-
+//        repositoryRestConfiguration.useHalAsDefaultJsonMediaType(false);//useless
 
     }
 

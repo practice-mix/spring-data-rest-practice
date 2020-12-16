@@ -30,7 +30,7 @@ public class MyAirportRepositoryRestController {
        return ResponseEntity.ok(airportRepository.findAll(Example.of(airport))); // N+1
     }
 
-    @GetMapping("/search/takeByName")
+    @GetMapping("/takeByName")
     @ResponseBody
     public List<MyAirport> takeByName(@RequestParam("name") String name) {
         return airportRepository.findByName(name);//N+1
